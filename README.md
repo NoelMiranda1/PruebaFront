@@ -5,6 +5,7 @@
 - Typescript
 - Babel Module resolver
 - React
+- React Native
 - Redux
 
 ## Scripts
