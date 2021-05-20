@@ -1,8 +1,17 @@
 import {useNavigation} from '@react-navigation/core';
+import {Separator} from 'components/common/Separator';
 import {styles} from 'config/globalStyle';
 import {useForm} from 'hooks/useForm';
 import React from 'react';
-import {Alert, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import {useSelector} from 'react-redux';
 
@@ -59,15 +68,21 @@ export const Formulario: React.FC = () => {
   };
   if (format.length < 2) {
     return (
-      <View style={styles.globalContainer}>
-        <Text style={styles.text}>El codigo escaneado es solo un texto</Text>
-        <Text style={styles.text}>Resultado: {data}</Text>
+      <View style={[styles.globalContainer, style.top]}>
+        <Image
+          style={style.img}
+          source={require('@assets/image/qr-code.png')}
+        />
+        <View style={style.containerText}>
+          <Text style={style.text}>El codigo escaneado es solo un texto</Text>
+          <Text style={style.text}>Resultado: {data}</Text>
+        </View>
       </View>
     );
   }
   return (
     <View style={styles.globalMargin}>
-      <Text style={{textAlign: 'center'}}>Formulario</Text>
+      <Text style={style.title}>Formulario</Text>
       <TextInput
         placeholder="Id"
         autoCorrect={false}
@@ -145,13 +160,45 @@ export const Formulario: React.FC = () => {
         onChangeText={e => onChange(e, 'expiracion')}
         value={form.expiracion}
       />
-      <TouchableOpacity onPress={validate}>
-        <Text>Ir a la tabla</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text>Volver a escanear</Text>
-      </TouchableOpacity>
-      <Text>{JSON.stringify(form, null, 4)}</Text>
+      <View style={style.row}>
+        <TouchableOpacity onPress={validate}>
+          <Text>Ir a la tabla</Text>
+        </TouchableOpacity>
+        <Separator />
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Text>Volver a escanear</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  img: {
+    resizeMode: 'contain',
+    height: 200,
+    marginTop: 50,
+  },
+  top: {
+    marginTop: -100,
+  },
+  text: {
+    fontWeight: 'bold',
+    color: '#000',
+    textAlign: 'center',
+    paddingHorizontal: 10,
+  },
+  containerText: {
+    margin: 20,
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 20,
+  },
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  row: {
+    flexDirection: 'row',
+  },
+});

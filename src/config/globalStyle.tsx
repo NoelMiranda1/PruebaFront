@@ -14,4 +14,10 @@ export const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
+  globalTouchable: {
+    padding: 16,
+    backgroundColor: '#03c2fc',
+    borderRadius: 20,
+    marginTop: 20,
+  },
 });

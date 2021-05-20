@@ -7,11 +7,8 @@ export const Welcome = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.globalContainer}>
-      <View style={{top: -20, alignItems: 'center'}}>
-        <Image
-          style={style.img}
-          source={require('@assets/image/qr-code.png')}
-        />
+      <View style={{top: -50, alignItems: 'center'}}>
+        <Image style={style.img} source={require('@assets/image/qr.jpg')} />
         <View style={style.card}>
           <Text style={style.text}>
             Bienvenidos a la prueba de frontend, consiste en poder escanear un
@@ -22,7 +19,7 @@ export const Welcome = () => {
           </Text>
         </View>
         <TouchableOpacity
-          style={style.buttonTouchable}
+          style={styles.globalTouchable}
           onPress={() => navigation.navigate('Home')}>
           <Text style={style.buttonText}>Comienza a escanear</Text>
         </TouchableOpacity>
@@ -46,13 +43,6 @@ const style = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-  buttonTouchable: {
-    padding: 16,
-    backgroundColor: '#03c2fc',
-    borderRadius: 20,
-    marginTop: 20,
-  },
-
   modal: {
     flex: 1,
     justifyContent: 'center',
@@ -62,12 +52,13 @@ const style = StyleSheet.create({
   },
   img: {
     resizeMode: 'contain',
-    height: 200,
+    height: 250,
     marginTop: 50,
+    borderRadius: 500,
   },
   card: {
     backgroundColor: '#40b3d6',
-    padding: 10,
+    padding: 5,
     margin: 15,
     borderRadius: 10,
   },
