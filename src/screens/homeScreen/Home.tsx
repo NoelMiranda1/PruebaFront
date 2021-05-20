@@ -11,22 +11,25 @@ import {useNavigation} from '@react-navigation/core';
 export const Home: React.FC = () => {
   const scanner = useRef(null);
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
+  const [type, setType] = useState('');
   const navigation = useNavigation();
 
   const dispatch = useDispatch();
 
   const onSuccess = (e: any) => {
     const value = e.data;
-    console.log('Lectura culquiera=>', value);
     setModalVisible(true);
     dispatch(setData(value));
+    setType(e.type);
   };
 
   return (
     <>
       <Modal isVisible={isModalVisible}>
-        <View style={[styles.modal, {height: 150}]}>
-          <Text>Los resultados completos a continuacion </Text>
+        <View style={styles.modal}>
+          <Text style={{textAlign: 'center', fontWeight: 'bold'}}>
+            Se ha escaneado correctamente el codigo de tipo: {type}
+          </Text>
           <TouchableOpacity
             style={{
               backgroundColor: 'blue',
@@ -38,7 +41,7 @@ export const Home: React.FC = () => {
               setModalVisible(false);
               navigation.navigate('Formulario');
             }}>
-            <Text style={{color: '#fff'}}>Mas datos</Text>
+            <Text style={{color: '#fff'}}>Mostrar datos</Text>
           </TouchableOpacity>
         </View>
       </Modal>
@@ -77,10 +80,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modal: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    height: 100,
+    padding: 20,
+    borderRadius: 10,
   },
 });
