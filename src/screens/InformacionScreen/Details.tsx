@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text, ScrollView} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {Table, Row} from 'react-native-table-component';
 import {useSelector} from 'react-redux';
 
@@ -25,14 +25,7 @@ export const Details = () => {
     width.push(180);
   }
   console.log('WIDTH=>', width);
-  if (format.length < 2) {
-    return (
-      <>
-        <Text>El codigo escaneado es solo un texto</Text>
-        <Text>El valor: {data}</Text>
-      </>
-    );
-  }
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>

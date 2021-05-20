@@ -6,11 +6,25 @@ import {Alert, Text, TextInput, TouchableOpacity, View} from 'react-native';
 
 import {useSelector} from 'react-redux';
 
+interface Inputs {
+  id: string;
+  cedula: string;
+  apellido_1: string;
+  apellido_2: string;
+  nombre_1: string;
+  nombre_2: string;
+  nacimiento: string;
+  origen: string;
+  genero: string;
+  emision: string;
+  expiracion: string;
+}
+
 export const Formulario: React.FC = () => {
   const data = useSelector((state: any) => state.dni.data);
   const format = data.split('<');
   const newData = format.splice(0, 11);
-  const {form, onChange} = useForm({
+  const {form, onChange} = useForm<Inputs>({
     id: newData[0],
     cedula: newData[1],
     apellido_1: newData[2],
@@ -43,7 +57,14 @@ export const Formulario: React.FC = () => {
       Alert.alert('Error', 'Todos los campos deben de contener su valor');
     }
   };
-
+  if (format.length < 2) {
+    return (
+      <View style={styles.globalContainer}>
+        <Text style={styles.text}>El codigo escaneado es solo un texto</Text>
+        <Text style={styles.text}>Resultado: {data}</Text>
+      </View>
+    );
+  }
   return (
     <View style={styles.globalMargin}>
       <Text style={{textAlign: 'center'}}>Formulario</Text>
