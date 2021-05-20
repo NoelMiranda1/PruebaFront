@@ -94,6 +94,7 @@ export const Formulario: React.FC = () => {
           <Text style={style.title}>Formulario</Text>
           <Text style={style.text2}>ID:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Id"
             autoCorrect={false}
@@ -103,6 +104,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Cedula:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Cedula"
             autoCorrect={false}
@@ -112,6 +114,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Primer Apellido:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Primer Apellido"
             autoCorrect={false}
@@ -121,6 +124,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Segundo Apellido:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Segundo Apellido"
             autoCorrect={false}
@@ -130,6 +134,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Primer Nombre:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Primer Nombre"
             autoCorrect={false}
@@ -139,6 +144,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Segundo Nombre:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Segundo Nombre"
             autoCorrect={false}
@@ -167,6 +173,7 @@ export const Formulario: React.FC = () => {
           <Text style={style.title}>Formulario</Text>
           <Text style={style.text2}>Fecha de nacimiento:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Fecha de nacimiento"
             autoCorrect={false}
@@ -176,6 +183,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Lugar de nacimiento:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Lugar de nacimiento"
             autoCorrect={false}
@@ -185,6 +193,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Genero:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Genero"
             autoCorrect={false}
@@ -194,6 +203,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Emision:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Emision"
             autoCorrect={false}
@@ -203,6 +213,7 @@ export const Formulario: React.FC = () => {
           />
           <Text style={style.text2}>Expiracion:</Text>
           <TextInput
+            editable={false}
             style={style.input}
             placeholder="Expiracion"
             autoCorrect={false}
