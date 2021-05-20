@@ -18,7 +18,6 @@ export const Home: React.FC = () => {
 
   const onSuccess = (e: any) => {
     const value = e.data;
-    console.log('Lectura culquiera=>', value);
     setModalVisible(true);
     dispatch(setData(value));
     setType(e.type);

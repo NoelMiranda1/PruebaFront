@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, ScrollView, Text} from 'react-native';
 import {Table, Row} from 'react-native-table-component';
 import {useSelector} from 'react-redux';
 
@@ -28,6 +28,7 @@ export const Details = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Tabla</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View>
           <Table>
@@ -39,7 +40,7 @@ export const Details = () => {
             />
           </Table>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+            <Table borderStyle={{borderWidth: 2, borderColor: '#006dda'}}>
               <Row widthArr={width} data={newData} textStyle={styles.text} />
             </Table>
           </ScrollView>
@@ -54,14 +55,23 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     paddingTop: 30,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
   },
   head: {
     height: 40,
-    backgroundColor: '#f1f8ff',
+    backgroundColor: '#006dda',
   },
   text: {
     padding: 10,
     textAlign: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  title: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    margin: 10,
   },
 });

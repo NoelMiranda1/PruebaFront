@@ -39,7 +39,7 @@ const style = StyleSheet.create({
     color: '#000',
   },
   buttonText: {
-    fontSize: 21,
+    fontSize: 18,
     color: '#fff',
     fontWeight: 'bold',
   },
