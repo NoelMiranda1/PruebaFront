@@ -25,8 +25,10 @@
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.2.0",
+    "react-native-table-component": "^1.2.1",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.0"
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -34,6 +36,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.64.5",
+    "@types/react-native-table-component": "^1.2.0",
     "@types/react-test-renderer": "^16.9.2",
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^4.1.0",

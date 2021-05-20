@@ -1,47 +1,44 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-import {StyleSheet, Text, TouchableOpacity, View, Button} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
+import {useDispatch} from 'react-redux';
+import {setData} from '../../store/actions/dni';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import Modal from 'react-native-modal';
 import {useNavigation} from '@react-navigation/core';
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const scanner = useRef(null);
-  const [scan, setScan] = useState(false);
-  const [result, setResult] = useState(null);
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalVisible, setModalVisible] = useState<boolean>(false);
   const navigation = useNavigation();
 
-  useEffect(() => {
-    setResult(null);
-  }, []);
+  const dispatch = useDispatch();
 
   const onSuccess = (e: any) => {
     const value = e.data;
-    const newValue = value.split('<');
-    console.log('Lectura=>', newValue);
     console.log('Lectura culquiera=>', value);
     setModalVisible(true);
-    setResult(newValue[0]);
+    dispatch(setData(value));
   };
 
-  return !scan ? (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.buttonTouchable}
-        onPress={() => setScan(true)}>
-        <Text style={styles.buttonText}>Comienza a escanear</Text>
-      </TouchableOpacity>
-    </View>
-  ) : (
+  return (
     <>
       <Modal isVisible={isModalVisible}>
-        <View style={{flex: 1}}>
-          <Text>ID:{result}</Text>
+        <View style={[styles.modal, {height: 150}]}>
           <Text>Los resultados completos a continuacion </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Info')}>
-            <Text>Mas datos</Text>
+          <TouchableOpacity
+            style={{
+              backgroundColor: 'blue',
+              borderRadius: 20,
+              margin: 20,
+              padding: 10,
+            }}
+            onPress={() => {
+              setModalVisible(false);
+              navigation.navigate('Formulario');
+            }}>
+            <Text style={{color: '#fff'}}>Mas datos</Text>
           </TouchableOpacity>
         </View>
       </Modal>
@@ -78,5 +75,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  modal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    height: 100,
   },
 });
