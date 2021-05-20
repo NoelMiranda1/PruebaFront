@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
   return (
     <>
       <Modal isVisible={isModalVisible}>
-        <View style={[styles.modal, {height: 150}]}>
+        <View style={styles.modal}>
           <Text>Los resultados completos a continuacion </Text>
           <TouchableOpacity
             style={{
@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modal: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
