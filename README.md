@@ -1,8 +1,8 @@
-# Bienvenidos a la prueba de frontend ,
+# Bienvenidos a la prueba de frontend
 
 ## Features
 
-- TypeScrip
+- Typescript
 - Babel Module resolver
 - React
 - Redux
